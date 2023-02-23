@@ -64,4 +64,17 @@ export const questionData = [
     },
     answer: "Mahatma Gandhi",
   },
+  {
+    key: 6,
+    question: "Who is gay",
+    //correctAnswerMarkUpdate,
+    //attempt,
+    options: {
+      option1: "Kausik",
+      option2: "1",
+      option3: "wew",
+      option4: "121212",
+    },
+    answer: "Kausik",
+  },
 ];

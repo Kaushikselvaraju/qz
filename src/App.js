@@ -20,6 +20,7 @@ function App() {
   function handleStart() {
     setResultFlag(false);
     setStartFlag(true);
+    setScore(0);
     setButtonText("Started");
   }
 
@@ -27,6 +28,17 @@ function App() {
     if (count > 0) return;
     setResultFlag(true);
   }, [count]);
+
+  const PrintResult = (score, totalQuestions) => {
+    return (
+      <div>
+        <div>
+          Test finish your score is {score}/{questionData.length}
+        </div>
+        <button onClick={handleStart}>Start again</button>
+      </div>
+    );
+  };
 
   if (startFlag) {
     qCards = (
