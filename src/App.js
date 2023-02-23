@@ -48,6 +48,7 @@ function App() {
       <div>
         {questionData.map((data, index) => (
           <Card
+            disabled={false}
             question={data.question}
             options={[
               data.options.option1,
@@ -83,13 +84,28 @@ function App() {
         </>
       ) : resultFlag && !showResult ? (
         <div>
-          {qCards}
+          {questionData.map((data, index) => (
+            <Card
+              disabled={true}
+              question={data.question}
+              options={[
+                data.options.option1,
+                data.options.option2,
+                data.options.option3,
+                data.options.option4,
+              ]}
+              key={index}
+              answer={data.answer}
+              handleAnswer={(flag) => {
+                flag && setScore(score + 1);
+                setCount(count - 1);
+              }}
+            >
+              {" "}
+            </Card>
+          ))}
           {startBtn}
           <button onClick={() => setShow(true)}>show results</button>
-          {/* <div>
-            Test finish your score is {score}/{questionData.length}
-          </div>
-          <button onClick={handleStart}>Start again</button> */}
         </div>
       ) : resultFlag && showResult ? (
         <>

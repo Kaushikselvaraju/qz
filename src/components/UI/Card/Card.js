@@ -6,9 +6,10 @@ const Card = ({
   attempt,
   options,
   answer,
+  disabled,
   handleAnswer,
 }) => {
-  const [state, setSate] = useState(false);
+  const [state, setSate] = useState(disabled);
 
   function disableBtn(option) {
     setSate(true);
@@ -23,7 +24,7 @@ const Card = ({
           <button
             key={index}
             onClick={() => {
-              disableBtn(op);
+              !disabled && disableBtn(op);
             }}
             disabled={state}
           >
