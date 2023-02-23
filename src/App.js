@@ -16,11 +16,14 @@ function App() {
   const [answered, setAnswered] = useState(0);
   const [score, setScore] = useState(0);
   const [count, setCount] = useState(questionData.length);
+  const [showResult, setShow] = useState(false);
 
   function handleStart() {
     setResultFlag(false);
+    setCount(questionData.length);
     setStartFlag(true);
     setScore(0);
+    setShow(false);
     setButtonText("Started");
   }
 
@@ -29,11 +32,11 @@ function App() {
     setResultFlag(true);
   }, [count]);
 
-  const PrintResult = (score, totalQuestions) => {
+  const PrintResult = ({ score, totalQuestions }) => {
     return (
       <div>
         <div>
-          Test finish your score is {score}/{questionData.length}
+          Test finish your score is {score}/{totalQuestions}
         </div>
         <button onClick={handleStart}>Start again</button>
       </div>
@@ -73,19 +76,29 @@ function App() {
   return (
     <div className="App">
       <h1>Quizz App</h1>
-      {!resultFlag ? (
+      {!resultFlag && !showResult ? (
         <>
           {qCards}
           {startBtn}
         </>
-      ) : (
+      ) : resultFlag && !showResult ? (
         <div>
+          {qCards}
+          {startBtn}
+          <button onClick={() => setShow(true)}>show results</button>
+          {/* <div>
+            Test finish your score is {score}/{questionData.length}
+          </div>
+          <button onClick={handleStart}>Start again</button> */}
+        </div>
+      ) : resultFlag && showResult ? (
+        <>
           <div>
             Test finish your score is {score}/{questionData.length}
           </div>
           <button onClick={handleStart}>Start again</button>
-        </div>
-      )}
+        </>
+      ) : null}
     </div>
   );
 }

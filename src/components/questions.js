@@ -77,4 +77,17 @@ export const questionData = [
     },
     answer: "Kausik",
   },
+  {
+    key: 7,
+    question: "is kausik a pervert",
+    //correctAnswerMarkUpdate,
+    //attempt,
+    options: {
+      option1: "yes",
+      option2: "no",
+      option3: "maybe",
+      option4: "definitely",
+    },
+    answer: "definitely",
+  },
 ];
