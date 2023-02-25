@@ -3,7 +3,7 @@ import "./App.css";
 import Button from "./components/UI/Button/Button";
 import Card from "./components/UI/Card/Card";
 import React from "react";
-import { questionData } from "./components/questions";
+import { questionData } from "./components/UI/Input/questions";
 
 function App() {
   var qCards;
