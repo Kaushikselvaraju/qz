@@ -115,6 +115,15 @@ function App() {
           <button onClick={handleStart}>Start again</button>
         </>
       ) : null}
+      <div style={{ display: "none" }}>
+        <a
+          href="https://reactjs.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </div>
     </div>
   );
 }
