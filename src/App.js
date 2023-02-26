@@ -340,12 +340,14 @@ function App() {
   const [answered, setAnswered] = useState(0);
 
   function handleStart() {
+    setResultFlag(false);
+    setQuestionsCorrect(0);
+    setAnswered(0);
     setStartFlag(true);
     setButtonText("Started");
   }
 
   function handleOptionClick(isCorrect) {
-    console.log(isCorrect);
     setAnswered(answered + 1);
     if (isCorrect) {
       setQuestionsCorrect(questionsCorrect + 1);
@@ -387,10 +389,16 @@ function App() {
   return (
     <div className="App">
       <h1>Quizz App</h1>
-      {qCards}
-      {startBtn}
-      {resultBtn}
-      {resultFlag && <Banner score={questionsCorrect} />}
+      {!resultFlag ? (
+        <>
+          {qCards}
+          {startBtn}
+          {resultBtn}
+        </>
+      ) : null}
+      {resultFlag && (
+        <Banner handleStart={handleStart} score={questionsCorrect} />
+      )}
     </div>
   );
 }

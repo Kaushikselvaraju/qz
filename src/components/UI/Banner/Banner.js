@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
 
-const Banner = ({score}) => {
-    return (
-      <div className="banner">
-        You have answered {score} / 5  Correctly
+const Banner = ({ score, handleStart }) => {
+  return (
+    <div className="banner">
+      You have answered {score} / 5 Correctly
+      <div>
+        <button onClick={handleStart}>Start Quiz</button>
       </div>
-    );
-  }
-  
-  export default Banner;
+    </div>
+  );
+};
+
+export default Banner;
